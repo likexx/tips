@@ -1,0 +1,28 @@
+1. add teset target
+
+2. add 
+@testable import YOUR_APP_TARGET_NAME (search in build settings for "module name"
+
+3. in Podfile, make it looks like:
+def shared_pods
+    pod 'GoogleMaps', '1.11.1'
+    pod 'Alamofire', '3.1.5'
+end
+
+target YOUR_APP_TARGET_NAME do
+    shared_pods
+end
+
+target TEST_TARGET_NAME do
+    shared_pods
+end
+
+4. switch to the test target, in building phase, add necessary frameworks
+
+5. in the current scheme, in "Test", add the test target
+
+6. Now run in XCode
+
+7. (optional) gem install xcpretty (3rd party tool)
+
+8. xcodebuild -workspace RideZilla.xcworkspace -scheme RideZillaLocal -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPHone 6,OS=9.2' test
