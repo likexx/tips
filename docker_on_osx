@@ -8,3 +8,8 @@ start mysql
 
 docker run --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql:latest -p 3306:3306
 
+
+mysql data volume problem:
+
+https://github.com/docker-library/mysql/issues/99
+
